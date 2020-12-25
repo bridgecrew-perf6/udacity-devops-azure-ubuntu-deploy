@@ -1,37 +1,37 @@
 {
-	"variables": {
-		"client_id": "{{env `ARM_CLIENT_ID`}}",
-		"client_secret": "{{env `ARM_CLIENT_SECRET`}}",
-		"subscription_id": "{{env `ARM_SUBSCRIPTION_ID`}}",
-    "resource_group": "{{env `ARM_UDACITY_RG`}}"
-	},
-	"builders": [{
-		"type": "azure-arm",
-    "client_id": "{{user `client_id`}}",
-    "client_secret": "{{user `client_secret`}}",
-    "subscription_id": "{{user `subscription_id`}}",
-
-    "os_type": "Linux",
-    "image_publisher": "Canonical",
-    "image_offer": "UbuntuServer",
-    "image_sku": "18.04-LTS",
-
-    "managed_image_resource_group_name": "{{user `resource_group`}}",
-    "managed_image_name": "azure-udacity-project-001-ubuntu-image",
-
-    "azure_tags": {
-      "intent": "UdacityProject-001"
+    "variables": {
+        "client_id": "{{env `ARM_CLIENT_ID`}}",
+        "client_secret": "{{env `ARM_CLIENT_SECRET`}}",
+        "subscription_id": "{{env `ARM_SUBSCRIPTION_ID`}}",
+        "resource_group": "{{env `ARM_UDACITY_RG`}}"
     },
+    "builders": [{
+        "type": "azure-arm",
+        "client_id": "{{user `client_id`}}",
+        "client_secret": "{{user `client_secret`}}",
+        "subscription_id": "{{user `subscription_id`}}",
 
-    "location": "Central US",
-    "vm_size": "Standard_B1s"
-	}],
-	"provisioners": [{
-		"inline": [
-			"echo 'Hello, World!' > index.html",
-			"nohup busybox httpd -f -p 80 &"
-		],
-		"inline_shebang": "/bin/sh -x",
-		"type": "shell"
-	}]
+        "os_type": "Linux",
+        "image_publisher": "Canonical",
+        "image_offer": "UbuntuServer",
+        "image_sku": "18.04-LTS",
+
+        "managed_image_resource_group_name": "{{user `resource_group`}}",
+        "managed_image_name": "azure-udacity-project-001-ubuntu-image",
+
+        "azure_tags": {
+            "intent": "UdacityProject-001"
+        },
+
+        "location": "Central US",
+        "vm_size": "Standard_B1s"
+    }],
+    "provisioners": [{
+        "inline": [
+            "echo 'Hello, World!' > index.html",
+            "nohup busybox httpd -f -p 80 &"
+        ],
+        "inline_shebang": "/bin/sh -x",
+        "type": "shell"
+    }]
 }
