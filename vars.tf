@@ -22,6 +22,11 @@ variable "username" {
   default = "AzureUser"
 }
 
+variable "password" {
+  description = "The password associated with the username used for virtual machine access."
+  type = string
+}
+
 variable "virtual_machine_count" {
   description = "The number of virtual machines to be deployed"
   type = number
