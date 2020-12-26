@@ -1,0 +1,71 @@
+[1;32mazure-arm: output will be in this color.[0m
+
+[1;32m==> azure-arm: Running builder ...[0m
+[1;32m==> azure-arm: Getting tokens using device flow[0m
+[1;32m==> azure-arm: Getting token for https://management.azure.com/[0m
+[1;32m==> azure-arm: Loading auth token from file: /home/tony/.azure/packer/oauth-bb85765b-dd7b-4b9b-94c2-56d2ab0689f2mgmt.json[0m
+[1;32m==> azure-arm: Auth token found in file: /home/tony/.azure/packer/oauth-bb85765b-dd7b-4b9b-94c2-56d2ab0689f2mgmt.json[0m
+[1;32m==> azure-arm: Azure token expired. Saving the refreshed token...[0m
+[1;32m==> azure-arm: Getting tokens using device flow[0m
+[1;32m==> azure-arm: Getting token for Vault resource[0m
+[1;32m==> azure-arm: Loading auth token from file: /home/tony/.azure/packer/oauth-bb85765b-dd7b-4b9b-94c2-56d2ab0689f2vault.json[0m
+[1;32m==> azure-arm: Auth token found in file: /home/tony/.azure/packer/oauth-bb85765b-dd7b-4b9b-94c2-56d2ab0689f2vault.json[0m
+[1;32m==> azure-arm: Azure token expired. Saving the refreshed token...[0m
+[0;32m    azure-arm: Creating Azure Resource Manager (ARM) client ...[0m
+[1;32m==> azure-arm: WARNING: Zone resiliency may not be supported in Central US, checkout the docs at https://docs.microsoft.com/en-us/azure/availability-zones/[0m
+[1;32m==> azure-arm: Creating resource group ...[0m
+[1;32m==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-q5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> Location          : 'Central US'[0m
+[1;32m==> azure-arm:  -> Tags              :[0m
+[1;32m==> azure-arm:  ->> intent : UdacityProject-001[0m
+[1;32m==> azure-arm: Validating deployment template ...[0m
+[1;32m==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-q5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> DeploymentName    : 'pkrdpq5ud0rmejr'[0m
+[1;32m==> azure-arm: Deploying deployment template ...[0m
+[1;32m==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-q5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> DeploymentName    : 'pkrdpq5ud0rmejr'[0m
+[1;32m==> azure-arm:[0m
+[1;32m==> azure-arm: Getting the VM's IP address ...[0m
+[1;32m==> azure-arm:  -> ResourceGroupName   : 'pkr-Resource-Group-q5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> PublicIPAddressName : 'pkripq5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> NicName             : 'pkrniq5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> Network Connection  : 'PublicEndpoint'[0m
+[1;32m==> azure-arm:  -> IP Address          : '40.113.228.217'[0m
+[1;32m==> azure-arm: Waiting for SSH to become available...[0m
+[1;32m==> azure-arm: Connected to SSH![0m
+[1;32m==> azure-arm: Provisioning with shell script: /tmp/packer-shell209237812[0m
+[1;31m==> azure-arm: + echo Hello, World![0m
+[1;32m==> azure-arm: Querying the machine's properties ...[0m
+[1;32m==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-q5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> ComputeName       : 'pkrvmq5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> Managed OS Disk   : '/subscriptions/2f933736-ddd1-434f-9492-a445127a4c42/resourceGroups/pkr-Resource-Group-q5ud0rmejr/providers/Microsoft.Compute/disks/pkrosq5ud0rmejr'[0m
+[1;32m==> azure-arm: Querying the machine's additional disks properties ...[0m
+[1;32m==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-q5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> ComputeName       : 'pkrvmq5ud0rmejr'[0m
+[1;32m==> azure-arm: Powering off machine ...[0m
+[1;32m==> azure-arm:  -> ResourceGroupName : 'pkr-Resource-Group-q5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> ComputeName       : 'pkrvmq5ud0rmejr'[0m
+[1;32m==> azure-arm: Capturing image ...[0m
+[1;32m==> azure-arm:  -> Compute ResourceGroupName : 'pkr-Resource-Group-q5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> Compute Name              : 'pkrvmq5ud0rmejr'[0m
+[1;32m==> azure-arm:  -> Compute Location          : 'Central US'[0m
+[1;32m==> azure-arm:  -> Image ResourceGroupName   : 'udacity-project-rg'[0m
+[1;32m==> azure-arm:  -> Image Name                : 'azure-udacity-project-001-ubuntu-image'[0m
+[1;32m==> azure-arm:  -> Image Location            : 'Central US'[0m
+[1;32m==> azure-arm: Removing the created Deployment object: 'pkrdpq5ud0rmejr'[0m
+[1;32m==> azure-arm: 
+==> azure-arm: Cleanup requested, deleting resource group ...[0m
+[1;32m==> azure-arm: Resource group has been deleted.[0m
+[1;32mBuild 'azure-arm' finished after 7 minutes 49 seconds.[0m
+
+==> Wait completed after 7 minutes 49 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> azure-arm: Azure.ResourceManagement.VMImage:
+
+OSType: Linux
+ManagedImageResourceGroupName: udacity-project-rg
+ManagedImageName: azure-udacity-project-001-ubuntu-image
+ManagedImageId: /subscriptions/2f933736-ddd1-434f-9492-a445127a4c42/resourceGroups/udacity-project-rg/providers/Microsoft.Compute/images/azure-udacity-project-001-ubuntu-image
+ManagedImageLocation: Central US
+
